@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class CandidateCode
+{
+static void Main(String[] args)
+{
+//Write code here
+int T, i, workedDays=0,leftDays=0;
+T = int.Parse(Console.ReadLine());
+
+for (i = 0; i < T; i++)
+{
+string noOfDays = Console.ReadLine();
+string[] daysUsed = noOfDays.Split(new char[] { ' ' });
+int[] days = new int[3];
+days = Array.ConvertAll(daysUsed, int.Parse);
+
+int C = days[0];
+int D = days[1];
+int N = days[2];
+int tomWorkingDays = C;
+int sum = 0;
+int count = 0;
+do
+{
+workedDays = tomWorkingDays-D;
+
+sum = sum + workedDays;
+count++;
+
+}
+while ((tomWorkingDays+sum)<=N);
+
+Console.WriteLine(count++);
+}
+
+}
+}
